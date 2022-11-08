@@ -15,9 +15,9 @@ class HomePage extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           alignment: Alignment.center,
-          margin: const EdgeInsets.only(top: 150, left: 33, right: 33),
+          margin: const EdgeInsets.only(top: 100, left: 33, right: 33),
           padding: const EdgeInsets.all(10),
-          child: const Text("Hello, nice to see hear you again!",
+          child: const Text("Hello, nice to hear you again!",
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.white,

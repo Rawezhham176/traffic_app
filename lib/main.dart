@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:traffic_app/distance_page.dart';
-import 'package:traffic_app/home_page.dart';
-import 'package:traffic_app/languages_page.dart';
-import 'package:traffic_app/setting_page.dart';
-import 'package:traffic_app/voice_page.dart';
+import 'package:traffic_app/pages/distance_page.dart';
+import 'package:traffic_app/pages/home_page.dart';
+import 'package:traffic_app/pages/languages_page.dart';
+import 'package:traffic_app/pages/setting_page.dart';
+import 'package:traffic_app/pages/voice_page.dart';
 
 void main() {
   runApp(const MyApp());
