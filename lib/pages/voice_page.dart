@@ -1,21 +1,41 @@
 import 'package:flutter/material.dart';
 
-class DistancePage extends StatefulWidget {
-  const DistancePage({super.key});
+class VoicePage extends StatefulWidget {
+  const VoicePage({super.key});
 
   @override
-  State<DistancePage> createState() => _DistancePageState();
+  State<VoicePage> createState() => _VoicePageState();
 }
 
-class _DistancePageState extends State<DistancePage> {
+class _VoicePageState extends State<VoicePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Distance")),
+      appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(100.0),
+          child: AppBar(
+            leadingWidth: 100,
+            leading: IconButton(
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+                size: 50,
+              ),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            title: const Text(
+              "Voice",
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            toolbarHeight: 100,
+          )),
       body: Column(children: [
         Container(
             alignment: Alignment.center,
-            margin: const EdgeInsets.only(top: 150, left: 33, right: 33),
+            margin: const EdgeInsets.only(top: 100, left: 33, right: 33),
             child: SizedBox(
               width: 280,
               height: 100,
@@ -31,7 +51,7 @@ class _DistancePageState extends State<DistancePage> {
                 ),
                 onPressed: () {},
                 child: const Text(
-                  "0m",
+                  "Male",
                   style: TextStyle(fontSize: 50, fontWeight: FontWeight.w100),
                 ),
               ),
@@ -54,7 +74,7 @@ class _DistancePageState extends State<DistancePage> {
                 ),
                 onPressed: () {},
                 child: const Text(
-                  "5m",
+                  "Female",
                   style: TextStyle(fontSize: 50, fontWeight: FontWeight.w100),
                 ),
               ),
@@ -77,7 +97,7 @@ class _DistancePageState extends State<DistancePage> {
                 ),
                 onPressed: () {},
                 child: const Text(
-                  "10m",
+                  "Robot",
                   style: TextStyle(fontSize: 50, fontWeight: FontWeight.w100),
                 ),
               ),

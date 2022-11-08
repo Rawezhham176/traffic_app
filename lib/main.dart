@@ -41,20 +41,27 @@ class _RootPageState extends State<RootPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 80,
         title: const Center(
             child: Text(
           "Traffic Light",
-          style: TextStyle(fontWeight: FontWeight.w400),
+          style: TextStyle(fontWeight: FontWeight.w400, fontSize: 30),
         )),
       ),
       body: _pageOptions[currentPage],
       bottomNavigationBar: NavigationBar(
+        height: 100,
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home, size: 35),
             label: "Home",
           ),
-          NavigationDestination(icon: Icon(Icons.settings), label: "Settings")
+          NavigationDestination(
+              icon: Icon(
+                Icons.settings,
+                size: 35,
+              ),
+              label: "Settings")
         ],
         onDestinationSelected: (int index) {
           setState(() {

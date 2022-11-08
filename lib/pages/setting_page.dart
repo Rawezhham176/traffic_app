@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:traffic_app/distance_page.dart';
-import 'package:traffic_app/languages_page.dart';
-import 'package:traffic_app/voice_page.dart';
+import 'package:traffic_app/pages/distance_page.dart';
+import 'package:traffic_app/pages/languages_page.dart';
+import 'package:traffic_app/pages/voice_page.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
@@ -17,7 +17,7 @@ class _SettingPageState extends State<SettingPage> {
       children: [
         Container(
           alignment: Alignment.center,
-          margin: const EdgeInsets.only(top: 120, left: 33, right: 33),
+          margin: const EdgeInsets.only(top: 100, left: 33, right: 33),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(minimumSize: const Size(280, 100)),
             onPressed: () {
