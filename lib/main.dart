@@ -1,65 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:traffic_app/distance_page.dart';
+import 'package:traffic_app/home_page.dart';
+import 'package:traffic_app/languages_page.dart';
+import 'package:traffic_app/setting_page.dart';
+import 'package:traffic_app/voice_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
+int currentPage = 0;
+
+final _pageOptions = [
+  const HomePage(),
+  const SettingPage(),
+];
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.blueGrey),
+      home: const RootPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
+class RootPage extends StatefulWidget {
+  const RootPage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<RootPage> createState() => _RootPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Center(
+            child: Text(
+          "Traffic Light",
+          style: TextStyle(fontWeight: FontWeight.w400),
+        )),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      body: _pageOptions[currentPage],
+      bottomNavigationBar: NavigationBar(
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          NavigationDestination(icon: Icon(Icons.settings), label: "Settings")
+        ],
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPage = index;
+          });
+        },
+        selectedIndex: currentPage,
       ),
     );
   }
